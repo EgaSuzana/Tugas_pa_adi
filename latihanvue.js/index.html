@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalkulator Vue.js</title>
+</head>
+<body>
+    <div id="app">
+        <h1>Kalkulator Sederhana</h1>
+        <input type="text" v-model="angka1">
+        <select v-model="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <input type="text" v-model="angka2">
+        <button @click="hitung">Hitung</button>
+        <p>Hasil: {{ hasil }}</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                angka1: 0,
+                angka2: 0,
+                operator: '+',
+                hasil: 0
+            },
+            methods: {
+                hitung: function () {
+                    if (this.operator === '+') {
+                        this.hasil = parseFloat(this.angka1) + parseFloat(this.angka2);
+                    } else if (this.operator === '-') {
+                        this.hasil = parseFloat(this.angka1) - parseFloat(this.angka2);
+                    } else if (this.operator === '*') {
+                        this.hasil = parseFloat(this.angka1) * parseFloat(this.angka2);
+                    } else if (this.operator === '/') {
+                        this.hasil = parseFloat(this.angka1) / parseFloat(this.angka2);
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
